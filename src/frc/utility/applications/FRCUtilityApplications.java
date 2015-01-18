@@ -19,9 +19,19 @@ public class FRCUtilityApplications {
         try{
             USB_FileWriter.setDefaultDir("/media/mallory");
             USB_FileWriter.setDefaultMediaDevice("/sdb1");
-            String[] defaultPaths = {""};
+            USB_FileReader.setDefaultDir("/media/mallory");
+            USB_FileReader.setDefaultMediaDevice("/sdb1");
+            USB_FileReader.setDefaultDelimiter(":");
             USB_FileWriter fw = new USB_FileWriter("Y.txt");
-            fw.write("Hello World");
+            USB_FileReader fr = new USB_FileReader("Y.txt");
+            fw.write("x:y:z:a:b:c\n1:2:3:4:5:6");
+            String[][] fileContents = fr.read();
+            for(int i = 0; i < fileContents.length;i++){
+                for(int j = 0; j < fileContents[i].length; j++){
+                    System.out.println(fileContents[i][j]);
+                }
+            }
+            System.out.println("[1][2] => " + fileContents[1][2]);
         }catch(Exception e){
             System.out.println(e);
         }

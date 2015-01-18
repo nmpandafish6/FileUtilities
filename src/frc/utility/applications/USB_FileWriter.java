@@ -31,6 +31,10 @@ public class USB_FileWriter {
         USB_FileWriter.defaultDir = defaultDir;
     }
     
+    /**
+     * Sets the default media path to <i>defaultDevice</i>
+     * @param defaultDevice The default media path for the system
+     */
     public static void setDefaultMediaDevice(String defaultDevice){
         USB_FileWriter.defaultMediaDevice = defaultDevice;
     }
